@@ -34,9 +34,9 @@ SECRET_KEY = 'django-insecure-$uo5pm(2jafz^j+8v0#rt_$d5ix$aai%^h+y0&_^3y&=$0ilf-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['classroom_notes.onrender.com',
-                 'sticky-notes-app-z1ft.onrender.com',
-                 ]
+ALLOWED_HOSTS = ['sticky-notes-app-z1ft.onrender.com']
+if 'RENDER_EXTERNAL_HOSTNAME' in os.environ:
+    ALLOWED_HOSTS.append(os.environ['RENDER_EXTERNAL_HOSTNAME'])
 
 
 # Application definition
