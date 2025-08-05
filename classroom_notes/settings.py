@@ -34,7 +34,7 @@ SECRET_KEY = 'django-insecure-$uo5pm(2jafz^j+8v0#rt_$d5ix$aai%^h+y0&_^3y&=$0ilf-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['classroom_notes.onrender.com']
 
 
 # Application definition
@@ -138,3 +138,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = 'dashboard'
 LOGOUT_REDIRECT_URL = 'login'
+
+# For collecting static on Render
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
