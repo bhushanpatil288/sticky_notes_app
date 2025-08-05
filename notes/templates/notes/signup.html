@@ -1,17 +1,29 @@
 {% extends 'layout.html' %}
+{% load form_tags %}
 
-{% block title %}
-signup
-{% endblock %}
-
+{% block title %}Signup{% endblock %}
 
 {% block main %}
-<div class="container">
-    <form action="" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button class="btn btn-success">Sign up</button>
-    </form>
-</div>
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 60vh;">
+  <div class="card p-4 bg-primary text-white shadow-sm" style="max-width: 400px; width: 100%;">
+    <h2 class="mb-4 text-center">Sign Up</h2>
+    <form method="post" novalidate>
+      {% csrf_token %}
 
+      {% for field in form %}
+        <div class="mb-3">
+          <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+          {{ field|add_class:"form-control" }}
+          {% if field.errors %}
+            <div class="text-danger small mt-1">
+              {{ field.errors|striptags }}
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+
+      <button type="submit" class="btn btn-success w-100">Sign up</button>
+    </form>
+  </div>
+</div>
 {% endblock %}
