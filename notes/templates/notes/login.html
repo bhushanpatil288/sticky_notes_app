@@ -6,10 +6,12 @@ login
 
 
 {% block main %}
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button class="btn btn-success">Login</button>
-</form>
+<div class="container">
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-success">Login</button>
+    </form>
+</div>
 
 {% endblock %}
