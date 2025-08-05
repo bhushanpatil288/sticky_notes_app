@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+signup
+{% endblock %}
+
+
+{% block main %}
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-success">Sign up</button>
+</form>
+
+{% endblock %}
